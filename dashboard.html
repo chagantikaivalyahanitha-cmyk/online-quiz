@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>Dashboard</h2>
+
+{% if role == 'admin' %}
+    <a href="/create_quiz">Create Quiz</a>
+{% endif %}
+
+<h3>Available Quizzes</h3>
+<ul>
+    {% for quiz in quizzes %}
+        <li>
+            {{ quiz.title }}
+            <a href="/quiz/{{ quiz.id }}">Start</a>
+        </li>
+    {% endfor %}
+</ul>
+{% endblock %}
